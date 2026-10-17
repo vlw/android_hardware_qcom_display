@@ -2624,9 +2624,9 @@ void processBootAnimCompleted(hwc_context_t *ctx) {
     char value[PROPERTY_VALUE_MAX];
 
     // Applying default mode after bootanimation is finished
-    property_get("init.svc.bootanim", value, "running");
+    property_get("service.bootanim.exit", value, "0");
 
-    if (!strncmp(value,"stopped",strlen("stopped"))) {
+    if (!strncmp(value, "1", strlen("1"))) {
         ctx->mBootAnimCompleted = true;
 
         //one-shot action check if bootanimation completed then apply
